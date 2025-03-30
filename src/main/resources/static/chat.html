@@ -28,6 +28,8 @@
     <div class="chat-container">
       <div class="output-container" id="output">
         <span class="output-label">Detected ADR:</span> <span id="detected-value">nan</span>
+        <div id="confidence" style="font-size: 0.8em; color: #666;"></div>
+        <div id="top-predictions" style="margin-top: 10px; font-size: 0.9em;"></div>
       </div>
       
       <div class="input-container">
@@ -105,5 +107,33 @@
   </div>
 
   <script src="script.js"></script>
+  <script>
+  document.getElementById('input-field').addEventListener('keypress', async function(e) {
+      if (e.key === 'Enter') {
+          const sideEffects = this.value;
+          if (!sideEffects) return;
+
+          try {
+              const response = await fetch('http://localhost:5000/predict', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({ side_effects: sideEffects })
+              });
+
+              const data = await response.json();
+              if (data.predicted_drug) {
+                  document.getElementById('detected-value').textContent = data.predicted_drug;
+              }
+          } catch (error) {
+              console.error('Error:', error);
+              document.getElementById('detected-value').textContent = 'Error occurred';
+          }
+
+          this.value = '';
+      }
+  });
+  </script>
 </body>
 </html>
