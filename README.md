@@ -117,7 +117,3 @@ spring.ai.openai.api-key=your-api-key-here
 - Divi Jaiwanth
 - SP Bharath
 - Meet Tak
-
-## License
-
-Copyright © 2023 MediLink ltd. All rights reserved.
