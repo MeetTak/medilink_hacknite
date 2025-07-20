@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MediLink API Test</title>
+</head>
+<body>
+    <h1>MediLink API Test</h1>
+    <input type="text" id="symptom-input" placeholder="Enter symptoms" value="headache and nausea">
+    <button onclick="testAPI()">Test API</button>
+    <div id="result"></div>
+
+    <script>
+        async function testAPI() {
+            const symptoms = document.getElementById('symptom-input').value;
+            const resultDiv = document.getElementById('result');
+            
+            resultDiv.innerHTML = 'Testing...';
+            
+            try {
+                // Test Flask API directly
+                const response = await fetch('http://localhost:8050/predict', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ side_effects: symptoms })
+                });
+                
+                const data = await response.json();
+                resultDiv.innerHTML = `
+                    <h3>Success!</h3>
+                    <p><strong>Predicted Drug:</strong> ${data.predicted_drug}</p>
+                    <p><strong>Confidence:</strong> ${data.confidence}</p>
+                    <p><strong>Response:</strong> ${JSON.stringify(data, null, 2)}</p>
+                `;
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <h3>Error!</h3>
+                    <p>${error.message}</p>
+                    <p>Check browser console for more details</p>
+                `;
+                console.error('Error:', error);
+            }
+        }
+    </script>
+</body>
+</html>

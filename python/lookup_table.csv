@@ -1,0 +1,1381 @@
+medical_condition,rating,no_of_reviews
+Acne,6.8,760
+Acne,7.2,449
+Acne,5.7,482
+Acne,7.9,623
+Acne,7.4,146
+Acne,7.6,8
+Acne,7.7,439
+Acne,8,999
+Acne,8.5,96
+Acne,7.9,86
+Acne,7.4,227
+Acne,7.8,51
+Acne,6,329
+Acne,7.3,698
+Acne,6.3,499
+Acne,8.4,8
+Acne,7.5,57
+Acne,6.3,55
+Acne,10,2
+Acne,6.9,99
+Acne,8,30
+Acne,8.3,4
+Acne,5.7,8
+Acne,7.6,570
+Acne,9,5
+Acne,7.5,4
+Acne,7.7,193
+Acne,8.2,94
+Acne,7.8,32
+Acne,5,1
+Acne,8.8,5
+Acne,,
+Acne,6,32
+Acne,10,1
+Acne,8.2,116
+Acne,6.7,13
+Acne,6.7,267
+Acne,7.3,909
+Acne,7,1
+Acne,6.4,193
+Acne,7.5,76
+Acne,6.6,5
+Acne,7.3,57
+Acne,7.8,27
+Acne,7.4,35
+Acne,9,2
+Acne,7.3,252
+Acne,7.3,274
+Acne,7.2,115
+Acne,8.7,10
+Acne,8.6,33
+Acne,8,1
+Acne,7,3
+Acne,9,1
+Acne,8.1,35
+Acne,7.4,5
+Acne,7.7,9
+Acne,7.6,54
+Acne,7.3,34
+Acne,7.6,183
+Acne,6.4,669
+Acne,4.8,32
+Acne,5.4,489
+Acne,7.3,54
+Acne,5.7,45
+Acne,8.3,3
+Acne,7.5,25
+Acne,8.5,6
+Acne,9.5,2
+Acne,8.7,7
+Acne,8,3
+Acne,7.5,36
+Acne,7.3,52
+Acne,5.2,36
+Acne,5,149
+Acne,7.4,42
+Acne,7.7,11
+Acne,2,3
+Acne,0,1
+Acne,8.1,7
+Acne,7,37
+Acne,3.8,187
+Acne,7.1,9
+Acne,5.7,6
+Acne,5.2,46
+Acne,8.7,3
+Acne,7.5,2
+Acne,10,3
+Acne,8.9,8
+Acne,8,2
+Acne,2.6,5
+Acne,4.4,5
+Acne,6.5,12
+Acne,3.7,28
+Acne,8.5,2
+Acne,6,1
+ADHD,7.3,768
+ADHD,7.4,360
+ADHD,7.9,207
+ADHD,6.8,382
+ADHD,7.3,799
+ADHD,8.3,73
+ADHD,5.4,21
+ADHD,7.2,10
+ADHD,6.5,8
+ADHD,8.7,3
+ADHD,7,833
+ADHD,2,1
+ADHD,7.6,11
+ADHD,4.8,12
+ADHD,5.2,478
+ADHD,8.6,93
+ADHD,6.8,894
+ADHD,6.9,160
+ADHD,8.3,194
+ADHD,6.1,133
+ADHD,7.6,61
+ADHD,6.3,152
+ADHD,9.4,35
+ADHD,5.8,257
+ADHD,5.8,127
+ADHD,5.1,558
+ADHD,7,106
+ADHD,6.4,119
+ADHD,7.9,17
+ADHD,7.4,18
+ADHD,8.2,14
+ADHD,6.3,266
+ADHD,8.8,52
+ADHD,7.5,41
+ADHD,7.1,41
+ADHD,8.5,8
+ADHD,8.2,9
+ADHD,9.5,2
+ADHD,10,2
+ADHD,8.1,25
+ADHD,6.7,3
+ADHD,6.8,11
+ADHD,8.1,24
+ADHD,7,8
+ADHD,6.9,33
+ADHD,5.5,124
+ADHD,,
+ADHD,8,2
+ADHD,6.1,53
+ADHD,6.6,26
+ADHD,5.5,5
+ADHD,4.5,13
+AIDS/HIV,7.1,14
+AIDS/HIV,6.9,171
+AIDS/HIV,8.3,119
+AIDS/HIV,7.2,122
+AIDS/HIV,9.5,89
+AIDS/HIV,9.1,103
+AIDS/HIV,4.8,5
+AIDS/HIV,1,3
+AIDS/HIV,8.6,17
+AIDS/HIV,5.9,30
+AIDS/HIV,6.8,19
+AIDS/HIV,8.3,120
+AIDS/HIV,7.7,4
+AIDS/HIV,8,2
+AIDS/HIV,8.3,58
+AIDS/HIV,10,2
+AIDS/HIV,10,5
+AIDS/HIV,6.5,4
+AIDS/HIV,,
+AIDS/HIV,7,25
+AIDS/HIV,6.8,4
+AIDS/HIV,6,2
+AIDS/HIV,4.4,5
+AIDS/HIV,1,1
+AIDS/HIV,9.1,107
+AIDS/HIV,7.8,5
+AIDS/HIV,5.1,7
+AIDS/HIV,8.4,10
+AIDS/HIV,8.4,18
+AIDS/HIV,9.4,6
+AIDS/HIV,4,3
+AIDS/HIV,4.5,2
+AIDS/HIV,7,3
+AIDS/HIV,7.3,6
+AIDS/HIV,7.3,3
+AIDS/HIV,7.5,5
+AIDS/HIV,9.3,4
+AIDS/HIV,9,1
+AIDS/HIV,7,5
+AIDS/HIV,10,1
+AIDS/HIV,9.5,2
+AIDS/HIV,9.3,5
+Allergies,7.3,60
+Allergies,4.7,213
+Allergies,4.8,8
+Allergies,4.6,181
+Allergies,,
+Allergies,5,2
+Alzheimer's,5,32
+Alzheimer's,4.8,64
+Alzheimer's,4.9,25
+Alzheimer's,4.5,53
+Alzheimer's,,
+Alzheimer's,6.7,12
+Alzheimer's,8.1,12
+Alzheimer's,3.3,4
+Alzheimer's,6,28
+Alzheimer's,5,2
+Alzheimer's,8.8,6
+Alzheimer's,10,2
+Angina,10,2
+Angina,8.6,8
+Angina,7,66
+Angina,7.5,15
+Angina,3.9,51
+Angina,9.7,4
+Angina,8,2
+Angina,7.1,81
+Angina,8.5,2
+Angina,3.8,4
+Angina,9,1
+Angina,5.5,3
+Angina,,
+Angina,10,3
+Angina,9,3
+Angina,0,1
+Angina,10,1
+Anxiety,8.5,552
+Anxiety,8.5,774
+Anxiety,8.6,840
+Anxiety,8,654
+Anxiety,5.8,1034
+Anxiety,8.4,459
+Anxiety,8.1,330
+Anxiety,7.5,899
+Anxiety,5.9,520
+Anxiety,7.4,1471
+Anxiety,8.8,194
+Anxiety,7.9,450
+Anxiety,6.4,295
+Anxiety,6.9,233
+Anxiety,6.6,128
+Anxiety,6.2,381
+Anxiety,7.2,264
+Anxiety,6.5,402
+Anxiety,6.6,501
+Anxiety,7.1,366
+Anxiety,10,8
+Anxiety,7,107
+Anxiety,9.3,106
+Anxiety,4.9,67
+Anxiety,9.7,15
+Anxiety,9,4
+Anxiety,9.1,44
+Anxiety,6.9,42
+Anxiety,8.5,54
+Anxiety,8.1,14
+Anxiety,9.7,7
+Anxiety,7.7,35
+Anxiety,10,3
+Anxiety,10,1
+Anxiety,6,37
+Anxiety,7.3,4
+Anxiety,9,3
+Anxiety,2.1,84
+Anxiety,9.8,4
+Anxiety,,
+Anxiety,8.5,14
+Anxiety,9.3,39
+Anxiety,10,2
+Anxiety,8.1,9
+Anxiety,6.1,66
+Asthma,6.4,61
+Asthma,5.2,195
+Asthma,7.2,65
+Asthma,5.3,19
+Asthma,7,43
+Asthma,7.1,58
+Asthma,6.9,46
+Asthma,7.1,61
+Asthma,,
+Asthma,6,36
+Asthma,9,5
+Asthma,5.7,122
+Asthma,7.8,11
+Asthma,7.9,11
+Asthma,9.5,2
+Asthma,6.8,6
+Asthma,7,9
+Asthma,7.3,5
+Asthma,10,1
+Asthma,9.5,3
+Asthma,9,6
+Asthma,7.5,2
+Asthma,8.7,3
+Asthma,8,2
+Asthma,0,1
+Asthma,8.5,3
+Asthma,8.6,8
+Asthma,7,1
+Bipolar Disorder,8.1,600
+Bipolar Disorder,6.3,634
+Bipolar Disorder,6.8,383
+Bipolar Disorder,5.5,332
+Bipolar Disorder,7,133
+Bipolar Disorder,5.6,328
+Bipolar Disorder,7.3,334
+Bipolar Disorder,6.3,681
+Bipolar Disorder,5.8,18
+Bipolar Disorder,5.7,346
+Bipolar Disorder,5.6,42
+Bipolar Disorder,5.6,44
+Bipolar Disorder,10,1
+Bipolar Disorder,6.9,655
+Bipolar Disorder,6.2,180
+Bipolar Disorder,7.2,106
+Bipolar Disorder,6.4,265
+Bipolar Disorder,6.4,88
+Bipolar Disorder,5.5,236
+Bipolar Disorder,6.9,53
+Bipolar Disorder,6.1,160
+Bipolar Disorder,5.6,414
+Bipolar Disorder,7.4,48
+Bipolar Disorder,6.2,289
+Bipolar Disorder,7.2,223
+Bipolar Disorder,8.5,14
+Bipolar Disorder,7,106
+Bipolar Disorder,5.6,288
+Bipolar Disorder,7.9,38
+Bipolar Disorder,5.6,26
+Bipolar Disorder,7.7,48
+Bipolar Disorder,9,3
+Bipolar Disorder,6.7,7
+Bipolar Disorder,6.7,15
+Bipolar Disorder,8.2,7
+Bipolar Disorder,7.1,243
+Bipolar Disorder,5,4
+Bipolar Disorder,8.7,10
+Bipolar Disorder,2,1
+Bipolar Disorder,4.8,55
+Bipolar Disorder,7.1,13
+Bipolar Disorder,2.5,4
+Bipolar Disorder,10,2
+Bipolar Disorder,,
+Bronchitis,5.8,51
+Bronchitis,6.2,188
+Bronchitis,5.9,17
+Bronchitis,5.8,15
+Bronchitis,6.7,73
+Bronchitis,5.4,120
+Bronchitis,6.5,33
+Bronchitis,5.3,76
+Bronchitis,5.9,40
+Bronchitis,6.5,51
+Bronchitis,5.3,138
+Bronchitis,4.5,42
+Bronchitis,5.5,23
+Bronchitis,1,1
+Bronchitis,6.1,12
+Bronchitis,6.5,29
+Bronchitis,5.5,11
+Bronchitis,7.5,4
+Bronchitis,6,2
+Bronchitis,6.3,3
+Bronchitis,,
+Bronchitis,6.5,2
+Bronchitis,6.1,31
+Bronchitis,7,2
+Bronchitis,9,1
+Bronchitis,7,4
+Bronchitis,2,1
+Bronchitis,5.8,4
+Bronchitis,7,1
+Bronchitis,8,1
+Bronchitis,4,5
+Bronchitis,1,4
+Cancer,1,2
+Cancer,,
+Cancer,10,2
+Cancer,10,1
+Cancer,1,1
+Cholesterol,4.2,243
+Cholesterol,4.7,115
+Cholesterol,4.6,83
+Cholesterol,4,56
+Cholesterol,3.6,125
+Cholesterol,5.7,109
+Cholesterol,4.3,307
+Cholesterol,5.6,113
+Cholesterol,4.3,311
+Cholesterol,5,189
+Cholesterol,4.3,60
+Cholesterol,6.4,14
+Cholesterol,5,22
+Cholesterol,6.3,24
+Cholesterol,7.3,19
+Cholesterol,5.5,81
+Cholesterol,6,48
+Cholesterol,,
+Cholesterol,5.9,27
+Cholesterol,6.7,11
+Cholesterol,10,1
+Cholesterol,5.1,13
+Cholesterol,9.5,2
+Cholesterol,6.3,14
+Cholesterol,8,6
+Cholesterol,5.6,85
+Cholesterol,5.1,10
+Cholesterol,4,1
+Colds & Flu,9.5,2
+Colds & Flu,6.8,5
+Colds & Flu,8.2,5
+Colds & Flu,,
+Colds & Flu,6.7,3
+Colds & Flu,6.3,8
+Colds & Flu,7,1
+Colds & Flu,10,1
+Colds & Flu,1,1
+Colds & Flu,7.3,16
+Colds & Flu,7.8,11
+Colds & Flu,7.6,14
+Colds & Flu,2,1
+Colds & Flu,9.1,13
+Colds & Flu,5,1
+Colds & Flu,9.4,5
+Colds & Flu,3,1
+Colds & Flu,10,2
+Colds & Flu,5,2
+Colds & Flu,5.6,9
+Colds & Flu,7.9,16
+Colds & Flu,9,7
+Colds & Flu,10,9
+Colds & Flu,9.2,21
+Colds & Flu,4,1
+Colds & Flu,8,1
+Colds & Flu,5.2,5
+Colds & Flu,0,1
+Colds & Flu,10,11
+Colds & Flu,9,1
+Constipation,5.8,34
+Constipation,7.3,182
+Constipation,5.5,13
+Constipation,5.2,960
+Constipation,5.2,1357
+Constipation,7.3,243
+Constipation,5,1
+Constipation,8.4,15
+Constipation,8.7,473
+Constipation,6.1,28
+Constipation,10,1
+Constipation,,
+Constipation,9,1
+Constipation,8.7,90
+Constipation,0,1
+Constipation,6.3,30
+Constipation,9.7,8
+Constipation,5.3,36
+Constipation,10,6
+Constipation,1,1
+Constipation,5,2
+Constipation,7.5,24
+Constipation,9,2
+Constipation,5.7,7
+Constipation,8.8,99
+Constipation,7.7,8
+Constipation,10,2
+Constipation,5,3
+COPD,7.4,46
+COPD,6.7,3
+COPD,6.8,56
+COPD,7.7,45
+COPD,7.5,47
+COPD,9,14
+COPD,2.9,20
+COPD,6.3,31
+COPD,7.8,48
+COPD,6.8,57
+COPD,7.5,5
+COPD,6.1,33
+COPD,5.5,4
+COPD,10,2
+COPD,2.8,21
+COPD,,
+Covid 19,,
+ INO-4800. MRT5500 Vaccine platform: mRNA vaccine On September 28, with AstraZeneca responsible for development and worldwide manufacturing and distribution. A randomised, double-blinded
+Depression,6.8,612
+Depression,7,423
+Depression,7,699
+Depression,7.4,301
+Depression,7.2,364
+Depression,6,603
+Depression,6.9,133
+Depression,5.9,885
+Depression,7,146
+Depression,6.9,773
+Depression,5.5,341
+Depression,7,168
+Depression,6.8,104
+Depression,8.1,126
+Depression,6,586
+Depression,7.3,92
+Depression,6.3,60
+Depression,7,4
+Depression,10,1
+Depression,7.6,12
+Depression,6.5,14
+Depression,,
+Depression,4.7,91
+Depression,6.6,35
+Depression,7.6,136
+Depression,8.5,89
+Depression,8,6
+Depression,9.6,6
+Depression,9,1
+Depression,6.8,42
+Depression,7.9,32
+Depression,7.6,17
+Depression,8.4,103
+Depression,9.8,5
+Depression,4.4,11
+Depression,8.6,130
+Depression,8.3,108
+Depression,9,6
+Depression,4.9,102
+Depression,5.8,6
+Depression,9,2
+Depression,9,3
+Depression,5.6,63
+Depression,5.6,57
+Depression,0,1
+Diabetes (Type 1),6.8,8
+Diabetes (Type 1),7.4,12
+Diabetes (Type 1),5.9,10
+Diabetes (Type 1),3.2,49
+Diabetes (Type 1),6.1,14
+Diabetes (Type 1),1,1
+Diabetes (Type 1),,
+Diabetes (Type 1),5.8,7
+Diabetes (Type 1),10,2
+Diabetes (Type 1),3.3,18
+Diabetes (Type 1),2.9,92
+Diabetes (Type 1),1.8,58
+Diabetes (Type 1),3.9,74
+Diabetes (Type 1),2.3,16
+Diabetes (Type 1),10,1
+Diabetes (Type 1),5.9,19
+Diabetes (Type 1),6.5,3
+Diabetes (Type 1),10,3
+Diabetes (Type 1),8.5,8
+Diabetes (Type 1),0,1
+Diabetes (Type 1),2,17
+Diabetes (Type 1),8.3,3
+Diabetes (Type 1),9,2
+Diabetes (Type 1),9,1
+Diabetes (Type 1),10,5
+Diabetes (Type 1),10,4
+Diabetes (Type 1),3.9,75
+Diabetes (Type 1),9.3,3
+Diabetes (Type 2),5.9,253
+Diabetes (Type 2),4.5,125
+Diabetes (Type 2),5.1,891
+Diabetes (Type 2),5.7,153
+Diabetes (Type 2),4.6,155
+Diabetes (Type 2),5.2,914
+Diabetes (Type 2),5.7,723
+Diabetes (Type 2),4.3,15
+Diabetes (Type 2),4.6,125
+Diabetes (Type 2),5.6,42
+Diabetes (Type 2),7.6,507
+Diabetes (Type 2),6.1,66
+Diabetes (Type 2),6.6,70
+Diabetes (Type 2),7.2,20
+Diabetes (Type 2),5.8,257
+Diabetes (Type 2),4.9,40
+Diabetes (Type 2),5.3,278
+Diabetes (Type 2),6,64
+Diabetes (Type 2),7.4,9
+Diabetes (Type 2),7.9,81
+Diabetes (Type 2),5.6,551
+Diabetes (Type 2),9.5,4
+Diabetes (Type 2),7.6,516
+Diabetes (Type 2),4.6,50
+Diabetes (Type 2),3.1,60
+Diabetes (Type 2),6.4,265
+Diabetes (Type 2),4.6,134
+Diabetes (Type 2),7.2,9
+Diabetes (Type 2),6,73
+Diabetes (Type 2),5.9,15
+Diabetes (Type 2),4.5,2
+Diabetes (Type 2),5.3,10
+Diabetes (Type 2),8,7
+Diabetes (Type 2),5.9,265
+Diabetes (Type 2),9,14
+Diabetes (Type 2),5.3,290
+Diabetes (Type 2),6.4,406
+Diabetes (Type 2),7.6,11
+Diabetes (Type 2),3.4,8
+Diabetes (Type 2),4.3,8
+Diabetes (Type 2),5.5,2
+Diabetes (Type 2),,
+Diabetes (Type 2),4.3,5
+Diabetes (Type 2),4.7,16
+Diabetes (Type 2),3.6,66
+Diabetes (Type 2),7.3,16
+Diabetes (Type 2),6,35
+Diabetes (Type 2),3.5,2
+Diabetes (Type 2),8,2
+Diabetes (Type 2),10,1
+Diabetes (Type 2),7,2
+Diabetes (Type 2),6,16
+Diabetes (Type 2),7.2,6
+Diabetes (Type 2),3,4
+Diabetes (Type 2),6.6,23
+Diabetes (Type 2),9.3,3
+Diabetes (Type 2),4.6,11
+Diabetes (Type 2),1,1
+Diabetes (Type 2),1,2
+Diabetes (Type 2),4,53
+Diabetes (Type 2),5,3
+Diabetes (Type 2),6.5,22
+Diabetes (Type 2),9,1
+Diabetes (Type 2),5.5,12
+Diabetes (Type 2),2.5,2
+Diabetes (Type 2),9,2
+Diabetes (Type 2),6.4,18
+Diabetes (Type 2),4,4
+Diabetes (Type 2),0,1
+Diabetes (Type 2),6,10
+Diabetes (Type 2),5.1,10
+Diabetes (Type 2),5.6,43
+Diarrhea,8.1,33
+Diarrhea,7.9,45
+Diarrhea,6.8,8
+Diarrhea,8,62
+Diarrhea,7.8,8
+Diarrhea,10,2
+Diarrhea,9.3,7
+Diarrhea,6.6,13
+Diarrhea,9.1,12
+Diarrhea,9.4,8
+Diarrhea,,
+Diarrhea,8.2,6
+Diarrhea,1,1
+Diarrhea,6.3,22
+Diarrhea,9.6,28
+Diarrhea,10,1
+Diarrhea,9,1
+Diarrhea,2,4
+Diarrhea,3,2
+Eczema,6.8,19
+Eczema,9,47
+Eczema,6.6,178
+Eczema,8.9,12
+Eczema,8.5,6
+Eczema,4.4,6
+Eczema,6.6,186
+Eczema,7.4,46
+Eczema,8.7,8
+Eczema,9.1,20
+Eczema,9,36
+Eczema,8.3,10
+Eczema,7.4,49
+Eczema,9.3,3
+Eczema,8.4,8
+Eczema,6,2
+Eczema,8,2
+Eczema,9,1
+Eczema,,
+Eczema,10,2
+Eczema,8,6
+Eczema,10,3
+Eczema,9.8,5
+Eczema,8,1
+Eczema,9.5,4
+Eczema,1,1
+Eczema,9.5,2
+Eczema,9,2
+Erectile Dysfunction,8.6,448
+Erectile Dysfunction,8.2,423
+Erectile Dysfunction,8.5,227
+Erectile Dysfunction,8.4,601
+Erectile Dysfunction,9.5,9
+Erectile Dysfunction,8.7,24
+Erectile Dysfunction,8,170
+Erectile Dysfunction,7.1,174
+Erectile Dysfunction,7.6,47
+Erectile Dysfunction,5.6,60
+Erectile Dysfunction,6.7,23
+Erectile Dysfunction,5.3,55
+Erectile Dysfunction,5.7,62
+Gastrointestinal,,
+GERD (Heartburn),4.7,257
+GERD (Heartburn),4.6,254
+GERD (Heartburn),5.5,154
+GERD (Heartburn),3.7,93
+GERD (Heartburn),6.5,50
+GERD (Heartburn),6.7,37
+GERD (Heartburn),6.2,162
+GERD (Heartburn),9.3,36
+GERD (Heartburn),8.5,14
+GERD (Heartburn),5.5,186
+GERD (Heartburn),6.5,95
+GERD (Heartburn),7.8,44
+GERD (Heartburn),6.8,4
+GERD (Heartburn),8.1,52
+GERD (Heartburn),6.3,86
+GERD (Heartburn),,
+GERD (Heartburn),6.1,24
+GERD (Heartburn),9.7,4
+GERD (Heartburn),9,1
+GERD (Heartburn),7.5,8
+GERD (Heartburn),6.4,194
+GERD (Heartburn),4.1,41
+GERD (Heartburn),8.2,27
+GERD (Heartburn),10,1
+GERD (Heartburn),4.1,22
+GERD (Heartburn),8.3,19
+GERD (Heartburn),4,6
+GERD (Heartburn),8,1
+GERD (Heartburn),8.6,8
+GERD (Heartburn),9.7,3
+GERD (Heartburn),5.5,2
+GERD (Heartburn),6.7,3
+GERD (Heartburn),10,2
+GERD (Heartburn),1,1
+GERD (Heartburn),8,5
+GERD (Heartburn),10,5
+Gout,7.4,77
+Gout,8.1,46
+Gout,9,1
+Gout,9.5,2
+Gout,8.1,61
+Gout,8.4,10
+Gout,9.7,6
+Gout,8,13
+Gout,,
+Hair Loss,5.3,140
+Hair Loss,,
+Hair Loss,4.6,40
+Hair Loss,8.8,13
+Hair Loss,3.7,4
+Hair Loss,8.3,6
+Hair Loss,1,1
+Hayfever,5.2,133
+Hayfever,5.4,196
+Hayfever,4.5,157
+Hayfever,4.5,100
+Hayfever,5.9,61
+Hayfever,3.5,40
+Hayfever,5.6,108
+Hayfever,8.9,20
+Hayfever,6.8,155
+Hayfever,1.8,8
+Hayfever,7.7,21
+Hayfever,1,2
+Hayfever,5.7,135
+Hayfever,6.8,4
+Hayfever,7.5,13
+Hayfever,10,1
+Hayfever,4.9,27
+Hayfever,5.8,64
+Hayfever,5,3
+Hayfever,5.8,93
+Hayfever,9.5,2
+Hayfever,8.6,11
+Hayfever,6,31
+Hayfever,,
+Hayfever,8.3,14
+Hayfever,2.5,8
+Hayfever,6.3,4
+Hayfever,9.7,3
+Hayfever,9,1
+Hayfever,7.5,30
+Hayfever,9.4,5
+Hayfever,8.3,3
+Hayfever,3.7,21
+Hayfever,4.7,6
+Hayfever,8.7,3
+Hayfever,6.1,16
+Hayfever,8.2,11
+Hayfever,7.5,22
+Hayfever,7,1
+Hayfever,6,2
+Hayfever,10,10
+Hayfever,5.7,137
+Hayfever,5,2
+Hayfever,1.7,3
+Hayfever,6.6,56
+Hayfever,3.6,35
+Hayfever,7.5,4
+Hayfever,1,1
+Hayfever,10,3
+Hayfever,9.3,3
+Hayfever,8.9,9
+Hayfever,6.4,17
+Hayfever,7.5,5
+Herpes,8,94
+Herpes,5.8,9
+Herpes,9.3,4
+Herpes,4.5,422
+Herpes,8.6,14
+Herpes,8.7,3
+Herpes,7.4,7
+Herpes,4.6,433
+Herpes,10,1
+Hypertension,4.9,540
+Hypertension,4.5,527
+Hypertension,5,151
+Hypertension,7.2,109
+Hypertension,4.4,15
+Hypertension,6.1,56
+Hypertension,5.6,75
+Hypertension,6.2,212
+Hypertension,6.6,62
+Hypertension,5.5,132
+Hypertension,5.2,38
+Hypertension,4.8,20
+Hypertension,2.7,77
+Hypertension,4.2,10
+Hypertension,3.9,96
+Hypertension,5.5,10
+Hypertension,5.8,97
+Hypertension,6.7,12
+Hypertension,5.1,69
+Hypertension,6.3,57
+Hypertension,4.4,93
+Hypertension,6.4,177
+Hypertension,2,1
+Hypertension,3.8,33
+Hypertension,5.6,45
+Hypertension,5.8,50
+Hypertension,5.4,20
+Hypertension,6.8,48
+Hypertension,6.7,20
+Hypertension,4.5,31
+Hypertension,9.3,5
+Hypertension,6.5,28
+Hypertension,4.4,81
+Hypertension,5.5,14
+Hypertension,5.8,56
+Hypertension,5.9,20
+Hypertension,4.8,40
+Hypertension,,
+Hypertension,5.3,79
+Hypertension,6.8,8
+Hypertension,5.8,59
+Hypertension,8.6,6
+Hypertension,8.5,59
+Hypertension,7.4,7
+Hypertension,1.5,2
+Hypertension,8,8
+Hypertension,4.7,7
+Hypertension,4.5,15
+Hypertension,6.8,24
+Hypertension,6.6,21
+Hypertension,4.2,18
+Hypertension,5.9,29
+Hypertension,5.6,38
+Hypertension,8,2
+Hypertension,6,243
+Hypertension,4,11
+Hypertension,5.7,3
+Hypertension,5.6,10
+Hypertension,5.1,13
+Hypertension,0,2
+Hypertension,7.5,2
+Hypertension,8,1
+Hypertension,9.7,7
+Hypertension,8.4,60
+Hypertension,5,3
+Hypertension,5.6,7
+Hypertension,9.6,5
+Hypertension,5.5,4
+Hypertension,10,1
+Hypertension,4,2
+Hypertension,5.9,34
+Hypertension,5,1
+Hypertension,9,1
+Hypertension,5.9,8
+Hypertension,8.3,3
+Hypertension,9.3,6
+Hypertension,6.1,30
+Hypertension,6.7,17
+Hypertension,6.9,11
+Hypertension,6.9,15
+Hypertension,6.8,5
+Hypertension,7.2,27
+Hypertension,2.5,2
+Hypertension,8.3,5
+Hypertension,5.6,19
+Hypertension,4,1
+Hypertension,9.7,3
+Hypertension,8.5,4
+Hypertension,6.9,29
+Hypertension,5.5,2
+Hypertension,7.5,20
+Hypertension,2,2
+Hypertension,8.5,13
+Hypertension,7.4,25
+Hypertension,5,44
+Hypertension,0,1
+Hypertension,4.9,41
+Hypertension,8,3
+Hypertension,1,1
+Hypertension,7.5,3
+Hypertension,6,3
+Hypertension,9,4
+Hypertension,8.4,11
+Hypothyroidism,5.1,468
+Hypothyroidism,6.3,89
+Hypothyroidism,6.6,124
+Hypothyroidism,6.6,17
+Hypothyroidism,6.9,39
+Hypothyroidism,6.7,50
+Hypothyroidism,1.1,92
+Hypothyroidism,6.3,69
+Hypothyroidism,6.3,28
+Hypothyroidism,7.3,3
+Hypothyroidism,10,2
+Hypothyroidism,0,1
+Hypothyroidism,10,1
+Hypothyroidism,1,3
+Hypothyroidism,3,129
+Hypothyroidism,,
+Hypothyroidism,5.2,15
+IBD (Bowel),7.6,31
+IBD (Bowel),7.3,14
+IBD (Bowel),5.5,2
+IBD (Bowel),9,1
+IBD (Bowel),8.5,4
+IBD (Bowel),9.5,2
+IBD (Bowel),,
+d,P=[],Q=function(a
+IBD (Bowel),10,1
+IBD (Bowel),7.9,12
+IBD (Bowel),1,1
+IBD (Bowel),7,3
+Incontinence,5.7,74
+Incontinence,4.3,80
+Incontinence,6.6,41
+Incontinence,6.1,7
+Incontinence,5.8,18
+Incontinence,6.5,15
+Incontinence,6.5,49
+Incontinence,8.4,18
+Incontinence,5.5,2
+Incontinence,,
+Incontinence,8,5
+Incontinence,4.4,93
+Incontinence,6.7,21
+Incontinence,2,1
+Incontinence,4.4,22
+Incontinence,6.6,16
+Incontinence,5,8
+Insomnia,7,543
+Insomnia,6.9,1008
+Insomnia,3.6,505
+Insomnia,3.7,530
+Insomnia,4.2,170
+Insomnia,6.4,423
+Insomnia,3,29
+Insomnia,4.2,180
+Insomnia,5.8,313
+Insomnia,6.8,104
+Insomnia,8.6,24
+Insomnia,8.1,97
+Insomnia,7.9,30
+Insomnia,6.5,98
+Insomnia,5.6,407
+Insomnia,4.3,102
+Insomnia,6.2,122
+Insomnia,5.7,71
+Insomnia,6.9,12
+Insomnia,8.2,60
+Insomnia,9.8,12
+Insomnia,9.2,12
+Insomnia,5.9,26
+Insomnia,5.6,75
+Insomnia,5.2,132
+Insomnia,9,2
+Insomnia,9.7,6
+Insomnia,4,144
+Insomnia,8.1,18
+Insomnia,8.4,9
+Insomnia,7.1,14
+Insomnia,4,126
+Insomnia,10,1
+Insomnia,5.2,20
+Insomnia,6.4,61
+Insomnia,5.1,20
+Insomnia,9,1
+Insomnia,7.4,8
+Insomnia,3.1,57
+Insomnia,6.3,31
+Insomnia,8.5,2
+Insomnia,,
+Insomnia,9,3
+Insomnia,8.4,7
+Insomnia,7,1
+Insomnia,6.9,23
+Insomnia,6,1
+Insomnia,9.5,2
+Menopause,9.2,13
+Menopause,,
+Menopause,5.6,10
+Migraine,7.6,434
+Migraine,7.7,170
+Migraine,7,95
+Migraine,7,52
+Migraine,5.2,171
+Migraine,7.4,153
+Migraine,8.3,314
+Migraine,8.7,120
+Migraine,4.5,17
+Migraine,,
+Migraine,4.5,19
+Migraine,5.3,174
+Migraine,8.6,148
+Migraine,7.6,110
+Migraine,8.4,29
+Migraine,7.7,42
+Migraine,8.5,48
+Migraine,9.1,89
+Migraine,8.7,71
+Migraine,7.3,62
+Migraine,5.4,176
+Migraine,8.4,49
+Migraine,8.8,82
+Migraine,9,41
+Migraine,8.3,176
+Migraine,6.6,28
+Migraine,9,33
+Migraine,9,96
+Migraine,7,220
+Migraine,8.4,18
+Migraine,9.7,8
+Migraine,7.4,20
+Migraine,9.9,9
+Migraine,8.5,13
+Migraine,6.8,33
+Migraine,9.1,51
+Migraine,10,6
+Migraine,6.4,11
+Migraine,8.4,16
+Migraine,9.1,23
+Migraine,6.9,7
+Migraine,9,1
+Migraine,5,4
+Migraine,9.8,10
+Migraine,6.2,5
+Migraine,9.5,2
+Migraine,9,3
+Migraine,6,2
+Migraine,5.3,54
+Migraine,10,2
+Migraine,6,8
+Osteoarthritis,6.8,198
+Osteoarthritis,7.1,79
+Osteoarthritis,8.1,57
+Osteoarthritis,6.7,51
+Osteoarthritis,7.5,5
+Osteoarthritis,7.4,41
+Osteoarthritis,5.9,32
+Osteoarthritis,7,101
+Osteoarthritis,7.1,174
+Osteoarthritis,5.9,8
+Osteoarthritis,8.3,24
+Osteoarthritis,9.5,2
+Osteoarthritis,6.2,18
+Osteoarthritis,6.8,24
+Osteoarthritis,1,1
+Osteoarthritis,10,1
+Osteoarthritis,5.2,27
+Osteoarthritis,6,5
+Osteoarthritis,7.7,47
+Osteoarthritis,9.4,7
+Osteoarthritis,7.8,5
+Osteoarthritis,,
+Osteoarthritis,7,10
+Osteoarthritis,7.9,13
+Osteoarthritis,8,32
+Osteoarthritis,6.8,25
+Osteoarthritis,9.4,5
+Osteoarthritis,7,9
+Osteoarthritis,8,8
+Osteoarthritis,2,1
+Osteoarthritis,5,2
+Osteoarthritis,9.7,3
+Osteoarthritis,9,4
+Osteoarthritis,8.2,5
+Osteoarthritis,7.3,4
+Osteoarthritis,5.5,2
+Osteoarthritis,5.6,9
+Osteoarthritis,5.8,4
+Osteoarthritis,7.5,10
+Osteoarthritis,5.1,30
+Osteoarthritis,0,1
+Osteoarthritis,8,1
+Osteoarthritis,4.8,31
+Osteoarthritis,6.2,242
+Osteoarthritis,6,275
+Osteoarthritis,7.5,9
+Osteoarthritis,6.3,185
+Osteoarthritis,5.3,574
+Osteoarthritis,6.2,49
+Osteoarthritis,6.3,60
+Osteoarthritis,6,163
+Osteoarthritis,5.7,49
+Osteoarthritis,9,3
+Osteoarthritis,5,3
+Osteoarthritis,1,2
+Osteoarthritis,4.2,217
+Osteoarthritis,7,30
+Osteoarthritis,4.4,32
+Osteoarthritis,4.9,10
+Osteoarthritis,6.2,230
+Osteoarthritis,3.9,13
+Osteoarthritis,6.2,39
+Osteoarthritis,5.8,60
+Osteoarthritis,6.1,38
+Osteoarthritis,9,1
+Osteoarthritis,6.1,7
+Osteoarthritis,9,7
+Osteoporosis,2.5,106
+Osteoporosis,2.7,332
+Osteoporosis,2.4,55
+Osteoporosis,9,5
+Osteoporosis,2.7,337
+Osteoporosis,3.3,73
+Osteoporosis,3.1,19
+Osteoporosis,4.8,5
+Osteoporosis,5.2,145
+Osteoporosis,5.1,174
+Osteoporosis,6.3,8
+Osteoporosis,9,2
+Osteoporosis,,
+Osteoporosis,2.9,56
+Osteoporosis,3.3,87
+Osteoporosis,4.9,12
+Osteoporosis,10,3
+Osteoporosis,4.7,3
+Osteoporosis,4.1,9
+Osteoporosis,3.3,13
+Osteoporosis,5.1,149
+Osteoporosis,4.8,244
+Osteoporosis,1,1
+Osteoporosis,4.2,81
+Osteoporosis,4.3,25
+Osteoporosis,9,1
+Osteoporosis,4.1,84
+Osteoporosis,10,4
+Osteoporosis,0,1
+Osteoporosis,5.5,2
+Osteoporosis,5.8,6
+Pain,8.4,456
+Pain,6.1,58
+Pain,5.5,188
+Pain,6.6,16
+Pain,8.7,166
+Pain,6.2,743
+Pain,8.2,245
+Pain,6.3,139
+Pain,8.8,194
+Pain,10,4
+Pain,8.7,186
+Pain,4.6,9
+Pain,6.5,389
+Pain,6,121
+Pain,8.2,438
+Pain,9.6,70
+Pain,6.2,270
+Pain,8,292
+Pain,9,28
+Pain,5,4
+Pain,8,170
+Pain,8.1,29
+Pain,6.6,160
+Pain,6.9,54
+Pain,8.6,74
+Pain,8.2,179
+Pain,7.9,216
+Pain,6.2,413
+Pain,8,8
+Pain,,
+Pain,10,1
+Pain,7.2,83
+Pain,9.5,93
+Pain,8.3,43
+Pain,6.7,3
+Pain,9,1
+Pain,8.3,40
+Pain,8,29
+Pain,7.1,73
+Pain,7.5,30
+Pain,10,2
+Pain,9.6,6
+Pain,4.1,95
+Pain,6.5,2
+Pain,8,1
+Pain,2.7,19
+Pain,7.5,20
+Pain,4.4,19
+Pain,8.4,51
+Pain,6.7,75
+Pain,1,2
+Pain,9,5
+Pain,7.5,21
+Pain,3.3,4
+Pain,9,4
+Pain,8.8,12
+Pain,7.3,32
+Pain,7.3,53
+Pain,7.1,24
+Pain,5.8,86
+Pain,9.5,3
+Pain,4.3,4
+Pain,5,6
+Pain,7.5,3
+Pain,8,2
+Pain,6.3,3
+Pain,5.8,64
+Pain,4.5,3
+Pain,6,2
+Pain,9.7,8
+Pain,5.6,57
+Pain,1,1
+Pain,6,1
+Pain,9.3,17
+Pain,5.2,20
+Pain,9.7,3
+Pain,7,15
+Pain,5.3,3
+Pain,4,3
+Pain,7.3,27
+Pain,0,1
+Pain,5.3,13
+Pneumonia,5.8,4
+Pneumonia,,
+Pneumonia,8,1
+Pneumonia,9,2
+Pneumonia,10,1
+Pneumonia,6.5,2
+Pneumonia,5.5,2
+Psoriasis,6.9,114
+Psoriasis,8.3,135
+Psoriasis,8.2,137
+Psoriasis,6.9,116
+Psoriasis,7.5,11
+Psoriasis,7.9,20
+Psoriasis,6.6,9
+Psoriasis,6.5,14
+Psoriasis,3.7,3
+Psoriasis,,
+Psoriasis,9.5,2
+Psoriasis,6.8,15
+Psoriasis,8,21
+Psoriasis,6.5,34
+Psoriasis,6.2,24
+Psoriasis,5.6,35
+Psoriasis,6,1
+Psoriasis,7.6,8
+Psoriasis,7.8,39
+Psoriasis,7,71
+Psoriasis,10,1
+Psoriasis,5.3,23
+Psoriasis,8,1
+Psoriasis,8.3,4
+Psoriasis,9,2
+Psoriasis,7.1,12
+Psoriasis,6,4
+Psoriasis,9,1
+Psoriasis,9,3
+Psoriasis,1,1
+Rheumatoid Arthritis,7.8,130
+Rheumatoid Arthritis,6.1,144
+Rheumatoid Arthritis,6.8,71
+Rheumatoid Arthritis,7.8,29
+Rheumatoid Arthritis,6.7,42
+Rheumatoid Arthritis,5.9,66
+Rheumatoid Arthritis,7.2,80
+Rheumatoid Arthritis,6.7,59
+Rheumatoid Arthritis,5.9,69
+Rheumatoid Arthritis,5.2,86
+Rheumatoid Arthritis,6.1,31
+Rheumatoid Arthritis,6,53
+Rheumatoid Arthritis,7.2,19
+Rheumatoid Arthritis,5,97
+Rheumatoid Arthritis,6.3,13
+Rheumatoid Arthritis,6.3,12
+Rheumatoid Arthritis,6.2,55
+Rheumatoid Arthritis,10,2
+Rheumatoid Arthritis,5.5,20
+Rheumatoid Arthritis,5.2,114
+Rheumatoid Arthritis,,
+Rheumatoid Arthritis,9,1
+Schizophrenia,7.8,54
+Schizophrenia,6.3,18
+Schizophrenia,3.6,12
+Schizophrenia,9,13
+Schizophrenia,4.5,96
+Schizophrenia,9.1,11
+Schizophrenia,3.6,93
+Schizophrenia,6,14
+Schizophrenia,,
+Schizophrenia,6.2,26
+Schizophrenia,9.5,4
+Schizophrenia,10,3
+Schizophrenia,7.3,4
+Schizophrenia,1,1
+Seizures,5.7,182
+Seizures,7,1
+Seizures,7.4,40
+Seizures,,
+Seizures,6.7,135
+Seizures,0,1
+Seizures,9,1
+Seizures,7.3,21
+Seizures,5.2,84
+Seizures,6.3,41
+Seizures,7.8,8
+Seizures,4.3,7
+Seizures,8.4,12
+Seizures,9.3,6
+Seizures,6.7,26
+Seizures,7.5,2
+Seizures,9.4,7
+Seizures,6.7,145
+Seizures,6,4
+Seizures,10,1
+Seizures,10,2
+Seizures,6.1,14
+Seizures,8.1,12
+Seizures,4.7,16
+Seizures,9.5,2
+Seizures,10,4
+Seizures,5.7,17
+Seizures,8.6,5
+Seizures,6.7,27
+Stroke,6.4,12
+Stroke,7.2,15
+Stroke,,
+Stroke,10,1
+Swine Flu,7.3,18
+Swine Flu,10,1
+Swine Flu,,
+UTI,4.2,1242
+UTI,4.3,552
+UTI,4.3,29
+UTI,8.3,27
+UTI,3,134
+UTI,6.3,35
+UTI,8,21
+UTI,,
+UTI,10,1
+UTI,0,1
+UTI,2,1
+UTI,8.8,6
+UTI,10,3
+UTI,9,1
+UTI,7.8,6
+UTI,6.3,39
+UTI,8.7,11
+UTI,8.5,2
+Weight Loss,8.7,2934
+Weight Loss,8.9,600
+Weight Loss,6.6,1939
+Weight Loss,6,109
+Weight Loss,7.3,363
+Weight Loss,8.3,112
+Weight Loss,8.3,150
+Weight Loss,8.7,154
+Weight Loss,7.7,556
+Weight Loss,7.5,1377
+Weight Loss,9,1
+Weight Loss,6.7,125
+Weight Loss,6.6,2013
+Weight Loss,7.8,679
+Weight Loss,6,5
+Weight Loss,7,14
+Weight Loss,7.6,40
+Weight Loss,,
+Weight Loss,7.5,17

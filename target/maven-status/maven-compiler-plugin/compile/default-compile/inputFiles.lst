@@ -1,8 +1,0 @@
-/Users/sandbox/project_github/hacka_boot/src/main/java/dev/culturiz/hacka_boot/HackaBootApplication.java
-/Users/sandbox/project_github/hacka_boot/src/main/java/dev/culturiz/hacka_boot/run/Drug.java
-/Users/sandbox/project_github/hacka_boot/src/main/java/dev/culturiz/hacka_boot/run/DrugClass.java
-/Users/sandbox/project_github/hacka_boot/src/main/java/dev/culturiz/hacka_boot/run/DrugController.java
-/Users/sandbox/project_github/hacka_boot/src/main/java/dev/culturiz/hacka_boot/run/DrugJsonDataLoader.java
-/Users/sandbox/project_github/hacka_boot/src/main/java/dev/culturiz/hacka_boot/run/DrugNotFoundException.java
-/Users/sandbox/project_github/hacka_boot/src/main/java/dev/culturiz/hacka_boot/run/DrugRepository.java
-/Users/sandbox/project_github/hacka_boot/src/main/java/dev/culturiz/hacka_boot/run/JdbcDrugRepository.java

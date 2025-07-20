@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediLink Chat</title>
+  <link rel="stylesheet" href="chat-style.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header Section -->
+    <header class="header">
+      <div class="logo">
+        <img src="logo.png" alt="MediLink Logo">
+        <h1>MediLink</h1>
+      </div>
+      <nav class="nav-buttons">
+        <button class="nav-btn" onclick="showLogin()">Login</button>
+        <button class="nav-btn" onclick="showSignup()">Sign Up</button>
+      </nav>
+    </header>
+
+    <!-- Main Chat Container -->
+    <div class="chat-container">
+      <div class="chat-header">
+        <h2>AI Drug Prediction Chat</h2>
+        <p>Describe your symptoms and get AI-powered drug suggestions</p>
+      </div>
+
+      <!-- Chat Messages Area -->
+      <div class="chat-messages" id="chat-messages">
+        <div class="message bot-message">
+          <strong>MediLink AI:</strong> Hello! I'm here to help you find potential medications for your symptoms. Please describe what you're experiencing.
+        </div>
+      </div>
+
+      <!-- Input Area -->
+      <div class="input-container">
+        <input type="text" class="input-field" id="input-field" placeholder="Describe your symptoms (e.g., headache, nausea, fever)..." autocomplete="off">
+        <button id="send-btn" class="send-button">Send</button>
+      </div>
+
+      <!-- Loading Indicator -->
+      <div id="loading" class="loading" style="display: none;">
+        <div class="spinner"></div>
+        <span>AI is analyzing your symptoms...</span>
+      </div>
+
+      <!-- Results Area -->
+      <div id="output" class="output-container" style="display: none;">
+        <h3>Prediction Results:</h3>
+        <div id="prediction-results"></div>
+      </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeLogin()">&times;</span>
+        <h2>Login to MediLink</h2>
+        <form>
+          <div class="form-group">
+            <label for="loginEmail">Email or Phone:</label>
+            <input type="text" id="loginEmail" placeholder="Enter Email or Phone" required>
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Password:</label>
+            <input type="password" id="loginPassword" placeholder="Enter Password" required>
+          </div>
+          <button type="submit" class="submit-btn">Login</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeSignup()">&times;</span>
+        <h2>Sign Up for MediLink</h2>
+        <form>
+          <div class="form-group">
+            <label for="signupUsername">Username:</label>
+            <input type="text" id="signupUsername" placeholder="Enter Username" required>
+          </div>
+          <div class="form-group">
+            <label for="signupEmail">Email or Phone:</label>
+            <input type="text" id="signupEmail" placeholder="Enter Email or Phone" required>
+          </div>
+          <div class="form-group">
+            <label for="signupPassword">Password:</label>
+            <input type="password" id="signupPassword" placeholder="Create Password" required>
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+          </div>
+          <button type="submit" class="submit-btn">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('DOM loaded, initializing chat...');
+      
+      // Get DOM elements
+      const inputField = document.getElementById('input-field');
+      const sendButton = document.getElementById('send-btn');
+      const chatMessages = document.getElementById('chat-messages');
+      const outputContainer = document.getElementById('output');
+      const loadingDiv = document.getElementById('loading');
+
+      // Check if all elements exist
+      console.log('Elements found:', {
+        inputField: !!inputField,
+        sendButton: !!sendButton,
+        chatMessages: !!chatMessages,
+        outputContainer: !!outputContainer,
+        loadingDiv: !!loadingDiv
+      });
+
+      if (!inputField || !sendButton || !chatMessages) {
+        console.error('Required elements not found!');
+        return;
+      }
+
+      // API endpoints to try
+      const API_ENDPOINTS = [
+        { url: '/api/ai/predict', type: 'spring' },
+        { url: 'http://localhost:8050/predict', type: 'flask' }
+      ];
+
+      // Add message to chat
+      function addMessageToChat(message, isUser = false) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = isUser ? 'message user-message' : 'message bot-message';
+        messageDiv.innerHTML = isUser ? 
+          `<strong>You:</strong> ${message}` : 
+          `<strong>MediLink AI:</strong> ${message}`;
+        chatMessages.appendChild(messageDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+
+      // Show loading
+      function showLoading() {
+        if (loadingDiv) {
+          loadingDiv.style.display = 'flex';
+        }
+      }
+
+      // Hide loading
+      function hideLoading() {
+        if (loadingDiv) {
+          loadingDiv.style.display = 'none';
+        }
+      }
+
+      // Make API prediction
+      async function makePrediction(symptoms) {
+        console.log('Making prediction for symptoms:', symptoms);
+        
+        for (let i = 0; i < API_ENDPOINTS.length; i++) {
+          const endpoint = API_ENDPOINTS[i];
+          console.log(`Trying ${endpoint.type} API: ${endpoint.url}`);
+          
+          try {
+            const requestBody = endpoint.type === 'spring' ? 
+              { sideEffects: symptoms } : 
+              { side_effects: symptoms };
+            
+            const response = await fetch(endpoint.url, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(requestBody)
+            });
+
+            console.log(`${endpoint.type} API response status:`, response.status);
+
+            if (response.ok) {
+              const data = await response.json();
+              console.log(`${endpoint.type} API response:`, data);
+              return { success: true, data, source: endpoint.type };
+            } else {
+              console.log(`${endpoint.type} API failed with status:`, response.status);
+            }
+          } catch (error) {
+            console.log(`${endpoint.type} API error:`, error.message);
+          }
+        }
+        
+        return { success: false, error: 'All APIs failed' };
+      }
+
+      // Display prediction results
+      function displayResults(data, source) {
+        console.log('Displaying results from:', source, data);
+        
+        let resultHtml = '';
+        
+        if (source === 'spring') {
+          const drug = data.predictedDrug || 'No prediction';
+          const confidence = data.confidence || '0%';
+          
+          resultHtml = `
+            <div class="prediction-result">
+              <h4>🎯 Primary Recommendation:</h4>
+              <p><strong>${drug}</strong> (Confidence: ${confidence})</p>
+            </div>
+          `;
+          
+          if (data.topPredictions && data.topPredictions.length > 1) {
+            resultHtml += `
+              <div class="alternatives">
+                <h4>📋 Alternative Options:</h4>
+                <ul>
+                  ${data.topPredictions.slice(1).map(drug => `<li>${drug}</li>`).join('')}
+                </ul>
+              </div>
+            `;
+          }
+        } else if (source === 'flask') {
+          const drug = data.predicted_drug || 'No prediction';
+          const confidence = data.confidence || '0%';
+          
+          resultHtml = `
+            <div class="prediction-result">
+              <h4>🎯 Primary Recommendation:</h4>
+              <p><strong>${drug}</strong> (Confidence: ${confidence})</p>
+            </div>
+          `;
+          
+          if (data.top_predictions && data.top_predictions.length > 1) {
+            resultHtml += `
+              <div class="alternatives">
+                <h4>📋 Alternative Options:</h4>
+                <ul>
+                  ${data.top_predictions.slice(1).map(p => `<li>${p.drug} (${p.confidence})</li>`).join('')}
+                </ul>
+              </div>
+            `;
+          }
+        }
+        
+        resultHtml += `
+          <div class="disclaimer">
+            <p><strong>⚠️ Medical Disclaimer:</strong> This is an AI prediction for informational purposes only. Always consult with a healthcare professional before taking any medication.</p>
+          </div>
+        `;
+
+        if (outputContainer) {
+          document.getElementById('prediction-results').innerHTML = resultHtml;
+          outputContainer.style.display = 'block';
+        }
+
+        // Add result to chat
+        const chatResponse = source === 'spring' ? 
+          `Based on your symptoms, I recommend **${data.predictedDrug || 'consulting a healthcare provider'}** (Confidence: ${data.confidence || '0%'})` :
+          `Based on your symptoms, I recommend **${data.predicted_drug || 'consulting a healthcare provider'}** (Confidence: ${data.confidence || '0%'})`;
+        
+        addMessageToChat(chatResponse);
+      }
+
+      // Main send message function
+      async function sendMessage() {
+        console.log('sendMessage function called');
+        
+        const symptoms = inputField.value.trim();
+        console.log('User input:', symptoms);
+        
+        if (!symptoms) {
+          console.log('No symptoms entered');
+          addMessageToChat('Please describe your symptoms to get a prediction.');
+          return;
+        }
+
+        // Add user message to chat
+        addMessageToChat(symptoms, true);
+        
+        // Clear input
+        inputField.value = '';
+        
+        // Show loading
+        showLoading();
+        
+        try {
+          const result = await makePrediction(symptoms);
+          console.log('Prediction result:', result);
+          
+          if (result.success) {
+            displayResults(result.data, result.source);
+          } else {
+            addMessageToChat('Sorry, I encountered an error while processing your symptoms. Please try again or consult a healthcare provider.');
+            console.error('Prediction failed:', result.error);
+          }
+        } catch (error) {
+          console.error('Error in sendMessage:', error);
+          addMessageToChat('Sorry, there was an unexpected error. Please try again.');
+        } finally {
+          hideLoading();
+        }
+      }
+
+      // Event listeners
+      inputField.addEventListener('keypress', function(e) {
+        console.log('Key pressed:', e.key);
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          console.log('Enter key detected, calling sendMessage');
+          sendMessage();
+        }
+      });
+
+      sendButton.addEventListener('click', function() {
+        console.log('Send button clicked');
+        sendMessage();
+      });
+
+      console.log('Event listeners attached successfully');
+    });
+
+    // Modal functions
+    function showLogin() {
+      document.getElementById('loginModal').style.display = 'block';
+    }
+
+    function closeLogin() {
+      document.getElementById('loginModal').style.display = 'none';
+    }
+
+    function showSignup() {
+      document.getElementById('signupModal').style.display = 'block';
+    }
+
+    function closeSignup() {
+      document.getElementById('signupModal').style.display = 'none';
+    }
+
+    // Close modals when clicking outside
+    window.onclick = function(event) {
+      const loginModal = document.getElementById('loginModal');
+      const signupModal = document.getElementById('signupModal');
+      
+      if (event.target === loginModal) {
+        loginModal.style.display = 'none';
+      }
+      if (event.target === signupModal) {
+        signupModal.style.display = 'none';
+      }
+    }
+  </script>
+</body>
+</html>

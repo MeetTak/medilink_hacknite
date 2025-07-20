@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediLink Debug</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .test-section { border: 1px solid #ccc; margin: 10px 0; padding: 15px; }
+    .result { background: #f0f0f0; padding: 10px; margin: 10px 0; }
+    .error { background: #ffe6e6; color: red; }
+    .success { background: #e6ffe6; color: green; }
+  </style>
+</head>
+<body>
+  <h1>MediLink Debug Console</h1>
+  
+  <div class="test-section">
+    <h3>Test 1: Direct API Call</h3>
+    <button onclick="testDirectAPI()">Test Flask API (Port 8050)</button>
+    <div id="api-result" class="result"></div>
+  </div>
+
+  <div class="test-section">
+    <h3>Test 2: CORS Test</h3>
+    <button onclick="testCORS()">Test CORS Headers</button>
+    <div id="cors-result" class="result"></div>
+  </div>
+
+  <div class="test-section">
+    <h3>Test 3: Spring Boot Backend</h3>
+    <button onclick="testSpringBoot()">Test Spring Boot API</button>
+    <div id="spring-result" class="result"></div>
+  </div>
+
+  <div class="test-section">
+    <h3>Test 4: Manual Symptom Input</h3>
+    <input type="text" id="manual-input" placeholder="Enter symptoms" value="headache and nausea">
+    <button onclick="testManualInput()">Test Prediction</button>
+    <div id="manual-result" class="result"></div>
+  </div>
+
+  <script>
+    async function testDirectAPI() {
+      const resultDiv = document.getElementById('api-result');
+      resultDiv.innerHTML = 'Testing Flask API...';
+      
+      try {
+        const response = await fetch('http://localhost:8050/predict', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ side_effects: 'headache and nausea' })
+        });
+        
+        if (response.ok) {
+          const data = await response.json();
+          resultDiv.className = 'result success';
+          resultDiv.innerHTML = `
+            <strong>SUCCESS!</strong><br>
+            Predicted Drug: ${data.predicted_drug}<br>
+            Confidence: ${data.confidence}<br>
+            Full Response: <pre>${JSON.stringify(data, null, 2)}</pre>
+          `;
+        } else {
+          resultDiv.className = 'result error';
+          resultDiv.innerHTML = `HTTP Error: ${response.status} - ${response.statusText}`;
+        }
+      } catch (error) {
+        resultDiv.className = 'result error';
+        resultDiv.innerHTML = `Error: ${error.message}`;
+      }
+    }
+
+    async function testCORS() {
+      const resultDiv = document.getElementById('cors-result');
+      resultDiv.innerHTML = 'Testing CORS...';
+      
+      try {
+        const response = await fetch('http://localhost:8050/health');
+        const data = await response.json();
+        resultDiv.className = 'result success';
+        resultDiv.innerHTML = `CORS working! Health check: ${JSON.stringify(data)}`;
+      } catch (error) {
+        resultDiv.className = 'result error';
+        resultDiv.innerHTML = `CORS Error: ${error.message}`;
+      }
+    }
+
+    async function testSpringBoot() {
+      const resultDiv = document.getElementById('spring-result');
+      resultDiv.innerHTML = 'Testing Spring Boot...';
+      
+      try {
+        const response = await fetch('/api/ai/predict', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ sideEffects: 'headache and nausea' })
+        });
+        
+        if (response.ok) {
+          const data = await response.json();
+          resultDiv.className = 'result success';
+          resultDiv.innerHTML = `Spring Boot working! Response: <pre>${JSON.stringify(data, null, 2)}</pre>`;
+        } else {
+          resultDiv.className = 'result error';
+          resultDiv.innerHTML = `Spring Boot Error: ${response.status} - ${response.statusText}`;
+        }
+      } catch (error) {
+        resultDiv.className = 'result error';
+        resultDiv.innerHTML = `Spring Boot Error: ${error.message}`;
+      }
+    }
+
+    async function testManualInput() {
+      const input = document.getElementById('manual-input').value;
+      const resultDiv = document.getElementById('manual-result');
+      
+      if (!input.trim()) {
+        resultDiv.className = 'result error';
+        resultDiv.innerHTML = 'Please enter some symptoms';
+        return;
+      }
+      
+      resultDiv.innerHTML = 'Testing with your input...';
+      
+      try {
+        // Try Flask API first
+        const response = await fetch('http://localhost:8050/predict', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ side_effects: input })
+        });
+        
+        if (response.ok) {
+          const data = await response.json();
+          resultDiv.className = 'result success';
+          resultDiv.innerHTML = `
+            <strong>Prediction for: "${input}"</strong><br>
+            <strong>Predicted Drug:</strong> ${data.predicted_drug}<br>
+            <strong>Confidence:</strong> ${data.confidence}<br>
+            <strong>Alternatives:</strong><br>
+            ${data.top_predictions.map(p => `- ${p.drug} (${p.confidence})`).join('<br>')}
+          `;
+        } else {
+          resultDiv.className = 'result error';
+          resultDiv.innerHTML = `Error: ${response.status} - ${response.statusText}`;
+        }
+      } catch (error) {
+        resultDiv.className = 'result error';
+        resultDiv.innerHTML = `Error: ${error.message}`;
+      }
+    }
+
+    // Auto-run basic tests on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('Debug page loaded');
+      setTimeout(() => {
+        testDirectAPI();
+        testCORS();
+      }, 1000);
+    });
+  </script>
+</body>
+</html>

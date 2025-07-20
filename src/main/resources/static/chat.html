@@ -1,138 +1,1517 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+    <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MediLink Chat</title>
-  <link rel="stylesheet" href="./chat-style.css">
+  <title>MediLink - AI Chat Assistant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-green: #4CAF50;
+      --secondary-green: #66BB6A;
+      --dark-green: #388E3C;
+      --accent-teal: #20b2aa;
+      --success-green: #4CAF50;
+      --warning-orange: #ff9800;
+      --error-red: #f44336;
+      --light-gray: #f8f9fa;
+      --medium-gray: #6c757d;
+      --dark-gray: #333333;
+      --white: #ffffff;
+      --border-color: #dee2e6;
+      --shadow: rgba(0, 0, 0, 0.1);
+      
+      /* Chat-specific variables */
+      --primary-color: #4CAF50;
+      --primary-hover: #388E3C;
+      --secondary-color: #66BB6A;
+      --background: #f8f9fa;
+      --surface: #ffffff;
+      --border: #dee2e6;
+      --text-primary: #333333;
+      --text-secondary: #6c757d;
+      --danger-color: #f44336;
+    }    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--background);
+      color: var(--text-primary);
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .app-container {
+      display: flex;
+      height: 100vh;
+    }
+
+    /* Sidebar Styles */
+    .sidebar {
+      width: 280px;
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease;
+    }
+
+    .sidebar-header {
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-icon {
+      font-size: 1.5rem;
+      color: var(--primary-color);
+    }
+
+    .logo h1 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .logo-link {
+      text-decoration: none;
+      color: inherit;
+      transition: opacity 0.2s ease;
+    }
+
+    .logo-link:hover {
+      opacity: 0.8;
+    }
+
+    .logo-link h1 {
+      margin: 0;
+      cursor: pointer;
+    }
+
+    .sidebar-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+    }
+
+    .sidebar-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem;
+    }
+
+    .user-profile {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1rem;
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+      border-radius: 0.75rem;
+      color: white;
+      margin-bottom: 2rem;
+    }
+
+    .avatar {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+
+    .user-info h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .user-info p {
+      font-size: 0.875rem;
+      opacity: 0.9;
+    }
+
+    .sidebar-nav ul {
+      list-style: none;
+    }
+
+    .sidebar-nav li {
+      margin-bottom: 0.5rem;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+      text-decoration: none;
+      color: var(--text-secondary);
+      transition: all 0.2s;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    .sidebar-footer {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    .top-header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: var(--shadow);
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.25rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+    }
+
+    .page-title h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.25rem;
+    }
+
+    .page-title p {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    .header-stats {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      display: block;
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--primary-color);
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+
+    .emergency-btn {
+      background: var(--danger-color);
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .emergency-btn:hover {
+      background: #dc2626;
+    }
+
+    /* Chat Container */
+    .chat-wrapper {
+      flex: 1;
+      display: flex;
+      min-height: 0;
+    }
+
+    .chat-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      background: var(--surface);
+      margin: 1rem;
+      border-radius: 1rem;
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+
+    .chat-header {
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .chat-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .bot-avatar {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.25rem;
+    }
+
+    .chat-details h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+    }
+
+    .status-dot {
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 50%;
+      background: var(--success-color);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+
+    .chat-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .action-btn {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 0.5rem;
+      background: none;
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .action-btn:hover {
+      background: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+    }
+
+    /* Chat Messages */
+    .chat-messages {
+      flex: 1;
+      padding: 1.5rem;
+      overflow-y: auto;
+      scroll-behavior: smooth;
+    }
+
+    .message-group {
+      margin-bottom: 2rem;
+    }
+
+    .bot-group {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .user-group {
+      display: flex;
+      gap: 1rem;
+      flex-direction: row-reverse;
+    }
+
+    .message-avatar {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      background: var(--primary-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .user-group .message-avatar {
+      background: var(--success-color);
+    }
+
+    .message-content {
+      flex: 1;
+      max-width: 70%;
+    }
+
+    .message {
+      background: var(--background);
+      padding: 1rem 1.25rem;
+      border-radius: 1rem;
+      margin-bottom: 0.75rem;
+      border: 1px solid var(--border);
+    }
+
+    .user-group .message {
+      background: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+    }
+
+    .message-text {
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+    }
+
+    .message-time {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+
+    .user-group .message-time {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    /* Quick Suggestions */
+    .quick-suggestions {
+      padding: 1rem 1.5rem;
+      border-top: 1px solid var(--border);
+      background: var(--background);
+    }
+
+    .suggestions-header {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-bottom: 0.75rem;
+    }
+
+    .suggestions-list {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .suggestion-btn {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .suggestion-btn:hover {
+      background: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+    }
+
+    /* Input Section */
+    .input-section {
+      padding: 1.5rem;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .input-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--background);
+      border: 2px solid var(--border);
+      border-radius: 3rem;
+      padding: 0.75rem 1.25rem;
+      transition: all 0.2s;
+    }
+
+    .input-wrapper:focus-within {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    .attach-btn,
+    .voice-btn {
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      cursor: pointer;
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+
+    .attach-btn:hover,
+    .voice-btn:hover {
+      color: var(--primary-color);
+    }
+
+    .input-field {
+      flex: 1;
+      border: none;
+      outline: none;
+      background: none;
+      font-size: 1rem;
+      color: var(--text-primary);
+    }
+
+    .input-field::placeholder {
+      color: var(--text-secondary);
+    }
+
+    .send-button {
+      background: var(--primary-color);
+      border: none;
+      color: white;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .send-button:hover {
+      background: var(--primary-hover);
+      transform: scale(1.05);
+    }
+
+    .send-button:disabled {
+      background: var(--text-secondary);
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .input-footer {
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    .disclaimer-text {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    /* Loading Overlay */
+    .loading-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+
+    .loading-content {
+      background: var(--surface);
+      padding: 3rem;
+      border-radius: 1rem;
+      text-align: center;
+      max-width: 400px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .loading-spinner {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 2rem;
+    }
+
+    .spinner-ring {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 4px solid transparent;
+      border-top-color: var(--primary-color);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    .spinner-ring:nth-child(2) {
+      animation-delay: 0.2s;
+      border-top-color: var(--success-color);
+    }
+
+    .spinner-ring:nth-child(3) {
+      animation-delay: 0.4s;
+      border-top-color: var(--warning-color);
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .loading-content h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .loading-content p {
+      color: var(--text-secondary);
+      margin-bottom: 2rem;
+    }
+
+    .loading-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      text-align: left;
+    }
+
+    .step {
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      background: var(--background);
+      color: var(--text-secondary);
+      font-size: 0.875rem;
+      transition: all 0.3s;
+    }
+
+    .step.active {
+      background: var(--primary-color);
+      color: white;
+    }
+
+    /* Buttons */
+    .btn-primary {
+      background: var(--primary-color);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+
+    .btn-secondary:hover {
+      background: var(--background);
+    }
+
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 1000;
+    }
+
+    .modal-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--surface);
+      padding: 2rem;
+      border-radius: 1rem;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      color: var(--text-secondary);
+      cursor: pointer;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        z-index: 100;
+        transform: translateX(-100%);
+      }
+
+      .sidebar.open {
+        transform: translateX(0);
+      }
+
+      .sidebar-toggle,
+      .menu-toggle {
+        display: block;
+      }
+
+      .header-stats {
+        display: none;
+      }
+
+      .chat-container {
+        margin: 0.5rem;
+      }
+
+      .suggestions-list {
+        justify-content: center;
+      }
+
+      .message-content {
+        max-width: 85%;
+      }
+    }
+
+    /* Results Panel */
+    .results-panel {
+      width: 350px;
+      background: var(--surface);
+      border-left: 1px solid var(--border);
+      display: none;
+      flex-direction: column;
+    }
+
+    .panel-header {
+      padding: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .panel-header h3 {
+      font-size: 1.125rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .close-panel {
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      cursor: pointer;
+      font-size: 1.25rem;
+    }
+
+    .panel-content {
+      flex: 1;
+      padding: 1.5rem;
+      overflow-y: auto;
+    }
+
+    .prediction-result {
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+      color: white;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .prediction-result h4 {
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .prediction-result p {
+      font-size: 1.125rem;
+      font-weight: 600;
+    }
+
+    .alternatives {
+      background: var(--background);
+      padding: 1.5rem;
+      border-radius: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .alternatives h4 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .alternatives ul {
+      list-style: none;
+    }
+
+    .alternatives li {
+      padding: 0.75rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    .disclaimer {
+      background: #fef3c7;
+      border: 1px solid #f59e0b;
+      padding: 1.5rem;
+      border-radius: 1rem;
+      color: #92400e;
+    }
+
+    .disclaimer p {
+      font-size: 0.875rem;
+      line-height: 1.5;
+    }
+  </style>
 </head>
 <body>
-  <nav class="navbar">
-    <a href="/">
-      <img src="./logo.png" alt="MediLink Logo" class="logo">
-    </a>
-    
-    <div class="nav-links">
-      <a href="./index.html" class="nav-item">Home</a>
-      <a href="./chat.html" class="nav-item">Chat</a>
-      <a href="./profile.html" class="nav-item">Profile</a>
-    </div>
-    
-    <div class="nav-buttons" id="nav-buttons">
-      <button class="login-btn" onclick="openModal('loginModal')">Login</button>
-      <button class="signup-btn" onclick="openModal('signupModal')">Sign up</button>
-    </div>
-  </nav>
-    
-  <div class="content-area">
-    <div class="chat-container">
-      <div class="output-container" id="output">
-        <span class="output-label">Detected ADR:</span> <span id="detected-value">nan</span>
-        <div id="confidence" style="font-size: 0.8em; color: #666;"></div>
-        <div id="top-predictions" style="margin-top: 10px; font-size: 0.9em;"></div>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="logo">
+          <i class="fas fa-heartbeat logo-icon"></i>
+          <a href="./index.html" class="logo-link">
+            <h1>MediLink</h1>
+          </a>
+        </div>
+        <button class="sidebar-toggle" id="sidebar-toggle">
+          <i class="fas fa-times"></i>
+        </button>
       </div>
       
-      <div class="input-container">
-        <input type="text" class="input-field" id="input-field" placeholder="Enter the Details" autocomplete="off">
+      <div class="sidebar-content">
+        <div class="user-profile">
+          <div class="avatar">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="user-info">
+            <h3>Guest User</h3>
+            <p>Get personalized health insights</p>
+          </div>
+        </div>
+        
+        <nav class="sidebar-nav">
+          <ul>
+            <li><a href="#" class="nav-link active"><i class="fas fa-comments"></i> AI Chat</a></li>
+            <li><a href="#" class="nav-link"><i class="fas fa-history"></i> Chat History</a></li>
+            <li><a href="#" class="nav-link"><i class="fas fa-pills"></i> My Medications</a></li>
+            <li><a href="#" class="nav-link"><i class="fas fa-chart-line"></i> Health Trends</a></li>
+            <li><a href="#" class="nav-link"><i class="fas fa-cog"></i> Settings</a></li>
+          </ul>
+        </nav>
+        
+        <div class="sidebar-footer">
+          <button class="btn-secondary" onclick="showLogin()">
+            <i class="fas fa-sign-in-alt"></i> Login
+          </button>
+          <button class="btn-primary" onclick="showSignup()">
+            <i class="fas fa-user-plus"></i> Sign Up
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Top Header -->
+      <header class="top-header">
+        <div class="header-left">
+          <button class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="page-title">
+            <h2><i class="fas fa-robot"></i> AI Health Assistant</h2>
+            <p>Get instant medical insights powered by AI</p>
+          </div>
+        </div>
+        
+        <div class="header-right">
+          <div class="header-stats">
+            <div class="stat-item">
+              <span class="stat-number">24/7</span>
+              <span class="stat-label">Available</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">99%</span>
+              <span class="stat-label">Accuracy</span>
+            </div>
+          </div>
+          <div class="emergency-btn">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span>Emergency</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Chat Container -->
+      <div class="chat-wrapper">
+        <div class="chat-container">
+          <!-- Chat Header -->
+          <div class="chat-header">
+            <div class="chat-info">
+              <div class="bot-avatar">
+                <i class="fas fa-brain"></i>
+              </div>
+              <div class="chat-details">
+                <h3>MediLink AI Assistant</h3>
+                <p class="status"><span class="status-dot"></span> Online • Ready to help</p>
+              </div>
+            </div>
+            <div class="chat-actions">
+              <button class="action-btn" title="Clear Chat" onclick="clearChat()">
+                <i class="fas fa-trash"></i>
+              </button>
+              <button class="action-btn" title="Export Chat" onclick="exportChat()">
+                <i class="fas fa-download"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Chat Messages Area -->
+          <div class="chat-messages" id="chat-messages">
+            <div class="message-group bot-group">
+              <div class="message-avatar">
+                <i class="fas fa-robot"></i>
+              </div>
+              <div class="message-content">
+                <div class="message bot-message">
+                  <div class="message-text">
+                    👋 Hello! I'm your AI health assistant. I can help you identify potential medications based on your symptoms.
+                  </div>
+                  <div class="message-time">Just now</div>
+                </div>
+                <div class="message bot-message">
+                  <div class="message-text">
+                    Please describe your symptoms in detail. For example: "I have a headache and nausea" or "I'm experiencing stomach pain and fever".
+                  </div>
+                  <div class="message-time">Just now</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Suggestions -->
+          <div class="quick-suggestions" id="quick-suggestions">
+            <div class="suggestions-header">
+              <span>💡 Quick suggestions:</span>
+            </div>
+            <div class="suggestions-list">
+              <button class="suggestion-btn" onclick="insertSuggestion('headache and nausea')">
+                <i class="fas fa-head-side-virus"></i> Headache & Nausea
+              </button>
+              <button class="suggestion-btn" onclick="insertSuggestion('fever and chills')">
+                <i class="fas fa-thermometer-full"></i> Fever & Chills
+              </button>
+              <button class="suggestion-btn" onclick="insertSuggestion('stomach pain')">
+                <i class="fas fa-stomach"></i> Stomach Pain
+              </button>
+              <button class="suggestion-btn" onclick="insertSuggestion('sore throat and cough')">
+                <i class="fas fa-lungs"></i> Sore Throat
+              </button>
+            </div>
+          </div>
+
+          <!-- Input Area -->
+          <div class="input-section">
+            <div class="input-container">
+              <div class="input-wrapper">
+                <button class="attach-btn" title="Attach File">
+                  <i class="fas fa-paperclip"></i>
+                </button>
+                <input type="text" 
+                       class="input-field" 
+                       id="input-field" 
+                       placeholder="Describe your symptoms in detail..." 
+                       autocomplete="off">
+                <button class="voice-btn" title="Voice Input">
+                  <i class="fas fa-microphone"></i>
+                </button>
+                <button id="send-btn" class="send-button">
+                  <i class="fas fa-paper-plane"></i>
+                </button>
+              </div>
+              <div class="input-footer">
+                <span class="disclaimer-text">
+                  <i class="fas fa-shield-alt"></i>
+                  This AI assistant provides suggestions only. Always consult healthcare professionals.
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Results Panel -->
+        <div class="results-panel" id="results-panel">
+          <div class="panel-header">
+            <h3><i class="fas fa-clipboard-list"></i> Analysis Results</h3>
+            <button class="close-panel" onclick="closeResultsPanel()">
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="panel-content" id="prediction-results">
+            <!-- Results will be populated here -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Loading Overlay -->
+      <div id="loading" class="loading-overlay" style="display: none;">
+        <div class="loading-content">
+          <div class="loading-spinner">
+            <div class="spinner-ring"></div>
+            <div class="spinner-ring"></div>
+            <div class="spinner-ring"></div>
+          </div>
+          <h3>🧠 AI is analyzing your symptoms...</h3>
+          <p>Please wait while we process your health data</p>
+          <div class="loading-steps" id="loading-steps">
+            <div class="step active">📝 Reading symptoms</div>
+            <div class="step">🔍 Analyzing patterns</div>
+            <div class="step">💊 Finding medications</div>
+            <div class="step">✅ Preparing results</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeLogin()">&times;</span>
+        <h2>Login to MediLink</h2>
+        <form>
+          <div class="form-group">
+            <label for="loginEmail">Email or Phone:</label>
+            <input type="text" id="loginEmail" placeholder="Enter Email or Phone" required>
+          </div>
+          <div class="form-group">
+            <label for="loginPassword">Password:</label>
+            <input type="password" id="loginPassword" placeholder="Enter Password" required>
+          </div>
+          <button type="submit" class="btn-primary">Login</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Signup Modal -->
+    <div id="signupModal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeSignup()">&times;</span>
+        <h2>Sign Up for MediLink</h2>
+        <form>
+          <div class="form-group">
+            <label for="signupUsername">Username:</label>
+            <input type="text" id="signupUsername" placeholder="Enter Username" required>
+          </div>
+          <div class="form-group">
+            <label for="signupEmail">Email or Phone:</label>
+            <input type="text" id="signupEmail" placeholder="Enter Email or Phone" required>
+          </div>
+          <div class="form-group">
+            <label for="signupPassword">Password:</label>
+            <input type="password" id="signupPassword" placeholder="Create Password" required>
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+          </div>
+          <button type="submit" class="btn-primary">Sign Up</button>
+        </form>
       </div>
     </div>
   </div>
 
-  <footer class="footer">
-    <div class="footer-container">
-      <div class="footer-logo">
-        <img src="./logo.png" alt="MediLink Logo">
-        <div class="copyright">
-          <p>Copyright © 2025 MediLink ltd.</p>
-          <p>All rights reserved</p>
-        </div>
-      </div>
-      
-      <div class="project-credits">
-        <h3>Project By</h3>
-        <ul>
-          <li>Divi Jaiwanth</li>
-          <li>SP Bharath</li>
-          <li>Meet Tak</li>
-        </ul>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Login Modal -->
-  <div id="loginModal" class="modal">
-    <div class="modal-content">
-      <span class="close">×</span>
-      <h2>Login to MediLink</h2>
-      <form id="loginForm">
-        <div class="form-group">
-          <label for="loginEmail">Email or Phone</label>
-          <input type="text" id="loginEmail" placeholder="Enter Email or Phone" required>
-        </div>
-        <div class="form-group">
-          <label for="loginPassword">Password</label>
-          <input type="password" id="loginPassword" placeholder="Enter Password" required>
-        </div>
-        <button type="submit" class="form-btn">Login</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- Signup Modal -->
-  <div id="signupModal" class="modal">
-    <div class="modal-content">
-      <span class="close">×</span>
-      <h2>Sign Up for MediLink</h2>
-      <form id="signupForm">
-        <div class="form-group">
-          <label for="signupUsername">Username</label>
-          <input type="text" id="signupUsername" placeholder="Enter Username" required>
-        </div>
-        <div class="form-group">
-          <label for="signupEmail">Email or Phone</label>
-          <input type="text" id="signupEmail" placeholder="Enter Email or Phone" required>
-        </div>
-        <div class="form-group">
-          <label for="signupPassword">Create Password</label>
-          <input type="password" id="signupPassword" placeholder="Create Password" required>
-        </div>
-        <div class="form-group">
-          <label for="confirmPassword">Confirm Password</label>
-          <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
-        </div>
-        <button type="submit" class="form-btn">Sign Up</button>
-      </form>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
   <script>
-  document.getElementById('input-field').addEventListener('keypress', async function(e) {
-      if (e.key === 'Enter') {
-          const sideEffects = this.value;
-          if (!sideEffects) return;
+    // Wait for DOM to be fully loaded
+    document.addEventListener('DOMContentLoaded', function() {
+      console.log('DOM loaded, initializing enhanced chat...');
+      
+      // Get DOM elements
+      const inputField = document.getElementById('input-field');
+      const sendButton = document.getElementById('send-btn');
+      const chatMessages = document.getElementById('chat-messages');
+      const loadingDiv = document.getElementById('loading');
+      const resultsPanel = document.getElementById('results-panel');
+      const menuToggle = document.getElementById('menu-toggle');
+      const sidebar = document.getElementById('sidebar');
+      const sidebarToggle = document.getElementById('sidebar-toggle');
 
-          try {
-              const response = await fetch('http://localhost:5000/predict', {
-                  method: 'POST',
-                  headers: {
-                      'Content-Type': 'application/json',
-                  },
-                  body: JSON.stringify({ side_effects: sideEffects })
-              });
+      // Check if all elements exist
+      console.log('Elements found:', {
+        inputField: !!inputField,
+        sendButton: !!sendButton,
+        chatMessages: !!chatMessages,
+        loadingDiv: !!loadingDiv,
+        resultsPanel: !!resultsPanel
+      });
 
-              const data = await response.json();
-              if (data.predicted_drug) {
-                  document.getElementById('detected-value').textContent = data.predicted_drug;
-              }
-          } catch (error) {
-              console.error('Error:', error);
-              document.getElementById('detected-value').textContent = 'Error occurred';
-          }
-
-          this.value = '';
+      if (!inputField || !sendButton || !chatMessages) {
+        console.error('Required elements not found!');
+        return;
       }
-  });
+
+      // API endpoints to try
+      const API_ENDPOINTS = [
+        { url: '/api/ai/predict', type: 'spring' },
+        { url: 'http://localhost:8051/predict', type: 'flask' }
+      ];
+
+      // Mobile menu functionality
+      menuToggle?.addEventListener('click', function() {
+        sidebar.classList.add('open');
+      });
+
+      sidebarToggle?.addEventListener('click', function() {
+        sidebar.classList.remove('open');
+      });
+
+      // Add message to chat
+      function addMessageToChat(message, isUser = false) {
+        const messageGroup = document.createElement('div');
+        messageGroup.className = isUser ? 'message-group user-group' : 'message-group bot-group';
+        
+        const currentTime = new Date().toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
+        
+        messageGroup.innerHTML = `
+          <div class="message-avatar">
+            <i class="fas fa-${isUser ? 'user' : 'robot'}"></i>
+          </div>
+          <div class="message-content">
+            <div class="message ${isUser ? 'user-message' : 'bot-message'}">
+              <div class="message-text">${message}</div>
+              <div class="message-time">${currentTime}</div>
+            </div>
+          </div>
+        `;
+        
+        chatMessages.appendChild(messageGroup);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+
+      // Show loading with animated steps
+      function showLoading() {
+        if (loadingDiv) {
+          loadingDiv.style.display = 'flex';
+          animateLoadingSteps();
+        }
+      }
+
+      // Animate loading steps
+      function animateLoadingSteps() {
+        const steps = document.querySelectorAll('.step');
+        let currentStep = 0;
+        
+        const interval = setInterval(() => {
+          if (currentStep > 0) {
+            steps[currentStep - 1].classList.remove('active');
+          }
+          if (currentStep < steps.length) {
+            steps[currentStep].classList.add('active');
+            currentStep++;
+          } else {
+            clearInterval(interval);
+          }
+        }, 800);
+      }
+
+      // Hide loading
+      function hideLoading() {
+        if (loadingDiv) {
+          loadingDiv.style.display = 'none';
+          // Reset steps
+          const steps = document.querySelectorAll('.step');
+          steps.forEach((step, index) => {
+            step.classList.toggle('active', index === 0);
+          });
+        }
+      }
+
+      // Make API prediction
+      async function makePrediction(symptoms) {
+        console.log('Making prediction for symptoms:', symptoms);
+        
+        for (let i = 0; i < API_ENDPOINTS.length; i++) {
+          const endpoint = API_ENDPOINTS[i];
+          console.log(`Trying ${endpoint.type} API: ${endpoint.url}`);
+          
+          try {
+            const requestBody = endpoint.type === 'spring' ? 
+              { sideEffects: symptoms } : 
+              { side_effects: symptoms };
+            
+            const response = await fetch(endpoint.url, {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(requestBody)
+            });
+
+            console.log(`${endpoint.type} API response status:`, response.status);
+
+            if (response.ok) {
+              const data = await response.json();
+              console.log(`${endpoint.type} API response:`, data);
+              return { success: true, data, source: endpoint.type };
+            } else {
+              console.log(`${endpoint.type} API failed with status:`, response.status);
+            }
+          } catch (error) {
+            console.log(`${endpoint.type} API error:`, error.message);
+          }
+        }
+        
+        return { success: false, error: 'All APIs failed' };
+      }
+
+      // Display prediction results in panel
+      function displayResults(data, source) {
+        console.log('Displaying results from:', source, data);
+        
+        let resultHtml = '';
+        
+        if (source === 'spring') {
+          const drug = data.predictedDrug || 'No prediction';
+          const confidence = data.confidence || '0%';
+          
+          resultHtml = `
+            <div class="prediction-result">
+              <h4>🎯 Primary Recommendation:</h4>
+              <p><strong>${drug}</strong> (Confidence: ${confidence})</p>
+            </div>
+          `;
+          
+          if (data.topPredictions && data.topPredictions.length > 1) {
+            resultHtml += `
+              <div class="alternatives">
+                <h4>📋 Alternative Options:</h4>
+                <ul>
+                  ${data.topPredictions.slice(1).map(drug => `<li>${drug}</li>`).join('')}
+                </ul>
+              </div>
+            `;
+          }
+        } else if (source === 'flask') {
+          const drug = data.predicted_drug || 'No prediction';
+          const confidence = data.confidence ? `${(data.confidence * 100).toFixed(1)}%` : '0%';
+          
+          resultHtml = `
+            <div class="prediction-result">
+              <h4>🎯 Primary Recommendation:</h4>
+              <p><strong>${drug}</strong> (Confidence: ${confidence})</p>
+            </div>
+          `;
+          
+          if (data.top_predictions && data.top_predictions.length > 1) {
+            resultHtml += `
+              <div class="alternatives">
+                <h4>📋 Alternative Options:</h4>
+                <ul>
+                  ${data.top_predictions.slice(1).map(p => `<li>${p.drug} (${p.confidence})</li>`).join('')}
+                </ul>
+              </div>
+            `;
+          }
+        }
+        
+        resultHtml += `
+          <div class="disclaimer">
+            <p><strong>⚠️ Medical Disclaimer:</strong> This is an AI prediction for informational purposes only. Always consult with a healthcare professional before taking any medication.</p>
+          </div>
+        `;
+
+        // Show results in panel
+        document.getElementById('prediction-results').innerHTML = resultHtml;
+        resultsPanel.style.display = 'flex';
+
+        // Add result to chat
+        const confidenceFormatted = data.confidence ? `${(data.confidence * 100).toFixed(1)}%` : '0%';
+        const chatResponse = source === 'spring' ? 
+          `Based on your symptoms, I recommend **${data.predictedDrug || 'consulting a healthcare provider'}** (Confidence: ${data.confidence || '0%'})` :
+          `Based on your symptoms, I recommend **${data.predicted_drug || 'consulting a healthcare provider'}** (Confidence: ${confidenceFormatted})`;
+        
+        addMessageToChat(chatResponse);
+      }
+
+      // Main send message function
+      async function sendMessage() {
+        console.log('sendMessage function called');
+        
+        const symptoms = inputField.value.trim();
+        console.log('User input:', symptoms);
+        
+        if (!symptoms) {
+          console.log('No symptoms entered');
+          addMessageToChat('Please describe your symptoms to get a prediction.');
+          return;
+        }
+
+        // Hide quick suggestions after first message
+        const quickSuggestions = document.getElementById('quick-suggestions');
+        if (quickSuggestions) {
+          quickSuggestions.style.display = 'none';
+        }
+
+        // Add user message to chat
+        addMessageToChat(symptoms, true);
+        
+        // Clear input
+        inputField.value = '';
+        sendButton.disabled = true;
+        
+        // Show loading
+        showLoading();
+        
+        try {
+          const result = await makePrediction(symptoms);
+          console.log('Prediction result:', result);
+          
+          if (result.success) {
+            displayResults(result.data, result.source);
+          } else {
+            addMessageToChat('Sorry, I encountered an error while processing your symptoms. Please try again or consult a healthcare provider.');
+            console.error('Prediction failed:', result.error);
+          }
+        } catch (error) {
+          console.error('Error in sendMessage:', error);
+          addMessageToChat('Sorry, there was an unexpected error. Please try again.');
+        } finally {
+          hideLoading();
+          sendButton.disabled = false;
+        }
+      }
+
+      // Event listeners
+      inputField.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+          e.preventDefault();
+          sendMessage();
+        }
+      });
+
+      sendButton.addEventListener('click', function() {
+        sendMessage();
+      });
+
+      // Make sendMessage globally available
+      window.sendMessage = sendMessage;
+
+      console.log('Enhanced chat initialized successfully');
+    });
+
+    // Global functions for UI interactions
+    function insertSuggestion(suggestion) {
+      const inputField = document.getElementById('input-field');
+      inputField.value = suggestion;
+      inputField.focus();
+    }
+
+    function clearChat() {
+      const chatMessages = document.getElementById('chat-messages');
+      chatMessages.innerHTML = `
+        <div class="message-group bot-group">
+          <div class="message-avatar">
+            <i class="fas fa-robot"></i>
+          </div>
+          <div class="message-content">
+            <div class="message bot-message">
+              <div class="message-text">
+                Chat cleared! How can I help you today?
+              </div>
+              <div class="message-time">Just now</div>
+            </div>
+          </div>
+        </div>
+      `;
+      
+      // Show quick suggestions again
+      const quickSuggestions = document.getElementById('quick-suggestions');
+      if (quickSuggestions) {
+        quickSuggestions.style.display = 'block';
+      }
+      
+      // Hide results panel
+      closeResultsPanel();
+    }
+
+    function exportChat() {
+      // Placeholder for chat export functionality
+      alert('Chat export feature coming soon!');
+    }
+
+    function closeResultsPanel() {
+      const resultsPanel = document.getElementById('results-panel');
+      resultsPanel.style.display = 'none';
+    }
+
+    // Modal functions
+    function showLogin() {
+      document.getElementById('loginModal').style.display = 'block';
+    }
+
+    function closeLogin() {
+      document.getElementById('loginModal').style.display = 'none';
+    }
+
+    function showSignup() {
+      document.getElementById('signupModal').style.display = 'block';
+    }
+
+    function closeSignup() {
+      document.getElementById('signupModal').style.display = 'none';
+    }
+
+    // Close modals when clicking outside
+    window.onclick = function(event) {
+      const loginModal = document.getElementById('loginModal');
+      const signupModal = document.getElementById('signupModal');
+      
+      if (event.target === loginModal) {
+        loginModal.style.display = 'none';
+      }
+      if (event.target === signupModal) {
+        signupModal.style.display = 'none';
+      }
+    }
   </script>
 </body>
 </html>

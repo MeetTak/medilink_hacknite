@@ -4,10 +4,56 @@ MediLink is an advanced platform that uses artificial intelligence to detect Adv
 
 ## Features
 
-- **AI-Powered Drug Prediction**: Predicts drugs based on reported side effects
+- **AI-Powered Drug Prediction**: Predicts drugs based on reported side effects using machine learning
+- **Interactive Chat Interface**: User-friendly chat interface for symptom input and AI interaction
 - **Real-time ADR Detection**: Identifies potential adverse drug reactions before they become critical
 - **Comprehensive Drug Database**: Access detailed information about medications and their side effects
 - **Multi-Source Data Integration**: Combines data from social media, wearables, and EHRs
+- **Confidence Scoring**: Provides confidence levels for AI predictions
+- **Multiple Prediction Options**: Shows alternative medication suggestions
+
+## 🚀 Quick Start
+
+### Automatic Startup (Recommended)
+
+**For macOS/Linux:**
+```bash
+./start_medilink.sh
+```
+
+**For Windows:**
+```cmd
+start_medilink.bat
+```
+
+### Manual Setup
+
+1. **Set up Python AI Server**
+   ```bash
+   cd python
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   pip install -r requirements.txt
+   python ai_server.py
+   ```
+
+2. **Start Spring Boot Application** (in new terminal)
+   ```bash
+   ./mvnw spring-boot:run
+   ```
+
+3. **Access the application**
+   - Web app: `http://localhost:8080`
+   - AI API: `http://localhost:5000`
+
+## Chat Interface Integration
+
+The chat interface (`chat.html`) now includes:
+- Real-time AI predictions
+- Fallback endpoints (Spring Boot → Flask)
+- Enhanced UX with loading indicators
+- Confidence scores and alternative suggestions
+- Medical disclaimers and safety warnings
 
 ## Project Architecture
 
