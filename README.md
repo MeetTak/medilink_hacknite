@@ -2,49 +2,51 @@
 
 MediLink is an advanced platform that uses artificial intelligence to detect Adverse Drug Reactions (ADRs) by analyzing data from multiple sources including social media, wearable devices, and electronic health records.
 
-## Features
+## 🚀 Features
 
-- **AI-Powered Drug Prediction**: Predicts drugs based on reported side effects using machine learning
-- **Interactive Chat Interface**: User-friendly chat interface for symptom input and AI interaction
-- **Real-time ADR Detection**: Identifies potential adverse drug reactions before they become critical
-- **Comprehensive Drug Database**: Access detailed information about medications and their side effects
-- **Multi-Source Data Integration**: Combines data from social media, wearables, and EHRs
-- **Confidence Scoring**: Provides confidence levels for AI predictions
-- **Multiple Prediction Options**: Shows alternative medication suggestions
+- **🤖 AI-Powered Drug Prediction**: Predicts drugs based on reported side effects using machine learning (75% accuracy)
+- **💬 Interactive Chat Interface**: Modern chat interface with real-time AI interaction
+- **⚡ Real-time ADR Detection**: Identifies potential adverse drug reactions before they become critical
+- **📊 Comprehensive Drug Database**: Access to 2931+ medications with detailed information
+- **🔗 Multi-Source Data Integration**: Combines data from social media, wearables, and EHRs
+- **📈 Confidence Scoring**: Provides accurate confidence percentages for AI predictions
+- **🎯 56+ Drug Classes**: Extensive coverage of pharmaceutical categories
+- **🎨 Professional UI**: Clean, medical-themed interface with green color scheme
 
 ## 🚀 Quick Start
 
-### Automatic Startup (Recommended)
-
-**For macOS/Linux:**
+### 1. Start the AI Server
 ```bash
-./start_medilink.sh
+cd python
+# Activate conda environment (recommended)
+conda activate medilink
+
+# Or use pip in virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+pip install -r requirements.txt
+
+# Start the AI server
+python ai_server.py
 ```
 
-**For Windows:**
-```cmd
-start_medilink.bat
+### 2. Start the Spring Boot Application
+```bash
+# In the project root directory
+./mvnw spring-boot:run
 ```
 
-### Manual Setup
+### 3. Access the Application
+- **Web Application**: `http://localhost:8080`
+- **AI Chat Interface**: `http://localhost:8080/chat.html`
+- **AI API**: `http://localhost:8051`
 
-1. **Set up Python AI Server**
-   ```bash
-   cd python
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   pip install -r requirements.txt
-   python ai_server.py
-   ```
+## 🌐 Application URLs
 
-2. **Start Spring Boot Application** (in new terminal)
-   ```bash
-   ./mvnw spring-boot:run
-   ```
-
-3. **Access the application**
-   - Web app: `http://localhost:8080`
-   - AI API: `http://localhost:5000`
+- **Home Page**: http://localhost:8080/
+- **AI Chat**: http://localhost:8080/chat.html  
+- **Profile**: http://localhost:8080/profile.html
+- **Research**: http://localhost:8080/research.html
 
 ## Chat Interface Integration
 
